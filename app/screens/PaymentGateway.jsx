@@ -1,4 +1,3 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React, { useContext } from 'react'
 import { Paystack } from 'react-native-paystack-webview'
 import key from '../config/key'
@@ -25,4 +24,3 @@ export default function PaymentGateway() {
   );
 }
 
-const styles = StyleSheet.create({})

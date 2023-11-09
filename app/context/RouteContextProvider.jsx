@@ -1,5 +1,4 @@
-import React,{useState} from "react";
-import { StyleSheet } from "react-native";
+import React, { useState } from "react";
 import RouteContext from "./routeContext";
 
 export default function RouteContextProvider({ children }) {
@@ -12,4 +11,3 @@ export default function RouteContextProvider({ children }) {
   );
 }
 
-const styles = StyleSheet.create({});

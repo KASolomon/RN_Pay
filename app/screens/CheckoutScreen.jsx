@@ -1,6 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-import { useForm, Controller } from "react-hook-form";
 import React from "react";
+import { View } from "react-native";
 import HeaderText from "../components/HeaderText";
 import PaymentForm from "../components/PaymentForm";
 
@@ -13,4 +12,3 @@ export default function CheckoutScreen() {
   );
 }
 
-const styles = StyleSheet.create({});

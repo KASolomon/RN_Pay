@@ -1,7 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import { useContext } from "react";
-import RouteContextProvider from "./app/context/RouteContextProvider";
 import Router from "./app/components/Router";
+import RouteContextProvider from "./app/context/RouteContextProvider";
 
 export default function App() {
   return (
