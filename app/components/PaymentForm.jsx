@@ -1,13 +1,25 @@
-import { StyleSheet, Text, View } from "react-native";
-import React, { useContext } from "react";
-import { useForm, Controller } from "react-hook-form";
+import React, { useContext, useEffect, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { Appearance, Text, View } from "react-native";
 import { Button, TextInput } from "react-native-paper";
-import { useColorScheme } from "nativewind";
 import routeContext from "../context/routeContext";
 import ErrorMessage from "./ErrorMessage";
 
 export default function PaymentForm() {
   const { pay, setPay, setFormData } = useContext(routeContext);
+
+  const [colorScheme, setColorScheme] = useState();
+
+  useEffect(() => {
+    const scheme = Appearance.getColorScheme();
+    setColorScheme(scheme);
+    const listener = Appearance.addChangeListener(() => {
+      const scheme = Appearance.getColorScheme();
+
+      setColorScheme(scheme);
+    });
+    return listener.remove
+  }, []);
 
   const {
     control: formControl,
@@ -15,7 +27,7 @@ export default function PaymentForm() {
     formState: { errors },
   } = useForm();
 
-  const { colorScheme } = useColorScheme();
+
   const outlineColor = "#d6d3d1";
   const cursorColor = "#ea580c";
   const activeOutline = "#fdba74";
@@ -24,12 +36,12 @@ export default function PaymentForm() {
   const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   const handlePayment = (values) => {
-    console.log(values)
-    setFormData(values)
+    console.log(values);
+    setFormData(values);
     setPay(!pay);
   };
   return (
-    <View className="bg-black shadow-2xl my-10 mx-2  rounded-xl shadow-orange-500 ">
+    <View className="bg-slate-200 dark:bg-black shadow-2xl my-10 mx-2  rounded-xl shadow-orange-500 ">
       <View className=" m-2 p-2 ">
         <Controller
           name="user_name"
